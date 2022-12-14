@@ -52,20 +52,9 @@
                     <li><a href="/admin/kompetensi"
                             class="btn btn-ghost w-full text-left justify-start py-6 font-medium bg-white hover:bg-gray-50">Kompetensi</a>
                     </li>
-                    <li><a href="/admin/kompetensi"
+                    <li><a href="/admin/dosen"
                             class="btn btn-ghost w-full text-left justify-start py-6 font-medium bg-white hover:bg-gray-50">Dosen</a>
                     </li>
-                    <li><a href="/admin/kompetensi"
-                            class="btn btn-ghost w-full text-left justify-start py-6 font-medium bg-white hover:bg-gray-50">BLABAL</a>
-                    </li>
-                    <li><a href="/admin/kompetensi"
-                            class="btn btn-ghost w-full text-left justify-start py-6 font-medium bg-white hover:bg-gray-50">BLABAL</a>
-                    </li>
-                    <li><a href="/admin/kompetensi"
-                            class="btn btn-ghost w-full text-left justify-start py-6 font-medium bg-white hover:bg-gray-50">BLABAL</a>
-                    </li>
-                    <li><a href="/admin/kompetensi"
-                            class="btn btn-ghost w-full text-left justify-start py-6 font-medium bg-white hover:bg-gray-50">BLABAL</a>
                     </li>
                 </ul>
             </div>
@@ -75,23 +64,6 @@
             </div>
         </div>
     </div>
-    {{-- <div class="grid grid-cols-6 border h-screen">
-        <!-- nav -->
-        <div class="bg-white h-full mt-16">
-            <ul class="bg-base-100 w-scren col-span-1 bg-white">
-                <li><a href="/admin/kompetensi" class="bg-white hover:bg-gray-50">Kompetensi</a></li>
-                <li><a href="/admin/kompetensi" class="bg-white hover:bg-gray-50">Dosen</a></li>
-                <li><a href="/admin/kompetensi" class="bg-white hover:bg-gray-50">BLABAL</a></li>
-                <li><a href="/admin/kompetensi" class="bg-white hover:bg-gray-50">BLABAL</a></li>
-                <li><a href="/admin/kompetensi" class="bg-white hover:bg-gray-50">BLABAL</a></li>
-                <li><a href="/admin/kompetensi" class="bg-white hover:bg-gray-50">BLABAL</a></li>
-            </ul>
-        </div>
-        <!-- content -->
-        <div class="bg-gray-100 h-full col-span-5 p-4 overflow-y overflow-x-hidden">
-            @yield('content')
-        </div>
-    </div> --}}
     <!-- JavaScript Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">

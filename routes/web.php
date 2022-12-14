@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\Admin\KompetensiController;
+use App\Http\Controllers\Admin\DosenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,10 @@ Route::get('/admin/kompetensi', [KompetensiController::class, 'index']);
 Route::post('/admin/kompetensi/store', [KompetensiController::class, 'store']);
 Route::post('/admin/kompetensi/destroy/{id}', [KompetensiController::class, 'destroy']);
 Route::post('/admin/kompetensi/update/{id}', [KompetensiController::class, 'update']);
+Route::post('/admin/kompetensi/search', [KompetensiController::class, 'cari']);
+// dosen
+Route::get('/admin/dosen', [DosenController::class, 'index']);
+Route::post('/admin/dosen/store', [DosenController::class, 'store']);
+Route::post('/admin/dosen/destroy/{id}', [DosenController::class, 'destroy']);
+Route::post('/admin/dosen/update/{id}', [DosenController::class, 'update']);
+Route::post('/admin/dosen/search', [DosenController::class, 'cari']);
