@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\Admin\KompetensiController;
 use App\Http\Controllers\Admin\DosenController;
+use App\Http\Controllers\Admin\PublikasiController;
+use App\Http\Controllers\AkademikController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,8 @@ Route::get('/', function () {
 });
 
 Route::get('/profil', [ProfilController::class, 'index']);
+Route::get('/akademik', [AkademikController::class, 'index']);
+Route::get('/detaildosen/{id}', [AkademikController::class, 'index']);
 
 // admin
 Route::get('/admin', function () {
@@ -37,4 +41,8 @@ Route::get('/admin/dosen', [DosenController::class, 'index']);
 Route::post('/admin/dosen/store', [DosenController::class, 'store']);
 Route::post('/admin/dosen/destroy/{id}', [DosenController::class, 'destroy']);
 Route::post('/admin/dosen/update/{id}', [DosenController::class, 'update']);
+Route::post('/admin/dosen/update/{id}', [DosenController::class, 'update']);
 Route::post('/admin/dosen/search', [DosenController::class, 'cari']);
+Route::post('/admin/dosen/updatephoto/{id}', [DosenController::class, 'updatePhoto']);
+// publikasi
+Route::get('/admin/publikasi', [PublikasiController::class, 'index']);

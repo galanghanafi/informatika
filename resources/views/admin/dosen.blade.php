@@ -57,10 +57,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($dosen as $data)
+                    @foreach ($dosen as $key => $data)
                         {{-- nama --}}
                         <tr>
-                            <th class="bg-white w-0">{{ $loop->index + 1 }}</th>
+                            <th class="bg-white w-0">{{ $dosen->firstItem() + $key }}</th>
                             <td class="bg-white w-0 ">{{ $data->nama }}</td>
                             <td class="bg-white "></td>
                             <td class="bg-white w-0 text-end">
@@ -154,13 +154,20 @@
                 <input type="text" name="nama" placeholder="Nama" required='required'
                     class="input border mb-2 focus:border-opacity-0 border-gray-100 w-full bg-white" />
                 <br>
-                {{-- Fakultas --}}
-                <input type="text" name="fakultas" placeholder="Fakultas" required='required'
+                {{-- jabatan Fungsional --}}
+                <input type="text" name="jabatan_fungsional" placeholder="Jabatan Fungsional"
                     class="input border mb-2 focus:border-opacity-0 border-gray-100 w-full bg-white" />
                 <br>
                 {{-- Jabatan Fungsional --}}
-                <input type="text" name="jabatan_fungsional" placeholder="Jabatan Fungsional"
-                    class="input border mb-2 focus:border-opacity-0 border-gray-100 w-full bg-white" />
+                <select class="max-w-xs input border mb-2 focus:border-opacity-0 border-gray-100 w-full bg-white"
+                    name="fakultas" required>
+                    <option value="" disabled selected>Fakultas</option>
+                    @foreach ($fakultas as $fdata)
+                        <option class="bg-white" value="{{ $fdata->fakultas }}">
+                            {{ $fdata->fakultas }}
+                        </option>
+                    @endforeach
+                </select>
                 <br>
                 {{-- s1 --}}
                 <input type="text" name="s1" placeholder="Pendidikan S1" required='required'
@@ -195,22 +202,42 @@
             <div class="modal-box bg-white">
                 <h3 class="font-bold text-lg">Ubah Data Dosen</h3>
                 <br>
-                <form action="/admin/dosen/update/{{ $data->id }}" method="post">
+                <form action="/admin/dosen/update/{{ $data->id }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
-                    {{-- nama --}}
-                    <input type="text" name="nama" placeholder="Nama" value="{{ $data->nama }}" required='required'
-                        class="input border mb-2 focus:border-opacity-0 border-gray-100 w-full bg-white" />
+                    <div class="personal-image">
+                        <label class="label">
+                            <input type="file" name='photo' />
+                            <figure class="personal-figure">
+                                <img src="{{ asset($data->photo) }}" class="personal-avatar" alt="avatar">
+                                <figcaption class="personal-figcaption">
+                                    <img class="mx-auto"
+                                        src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">
+                                </figcaption>
+                            </figure>
+                        </label>
+                    </div>
                     <br>
-                    {{-- Fakultas --}}
-                    <input type="text" name="fakultas" placeholder="Fakultas" value="{{ $data->fakultas }}"
+                    {{-- nama --}}
+                    <input type="text" name="nama" placeholder="Nama" value="{{ $data->nama }}"
                         required='required'
                         class="input border mb-2 focus:border-opacity-0 border-gray-100 w-full bg-white" />
                     <br>
+                    {{-- Fakultas --}}
+                    <select class="max-w-xs input border mb-2 focus:border-opacity-0 border-gray-100 w-full bg-white"
+                        name="fakultas">
+                        @foreach ($fakultas as $fdata)
+                            <option class="bg-white" value="{{ $fdata->fakultas }}"
+                                {{ $fdata->fakultas == $data->fakultas ? ' selected' : ' ' }}>
+                                {{ $fdata->fakultas }}
+                            </option>
+                        @endforeach
+                    </select>
+                    {{-- {{ dd($data->fakultas) }} --}}
+                    <br>
                     {{-- Jabatan Fungsional --}}
                     <input type="text" name="jabatan_fungsional" placeholder="Jabatan Fungsional"
-                        value="{{ $data->jabatan_fungsional }}" required='required'
-                        class="input
-                        border mb-2 focus:border-opacity-0 border-gray-100 w-full bg-white" />
+                        value="{{ $data->jabatan_fungsional }}"
+                        class="input border mb-2 focus:border-opacity-0 border-gray-100 w-full bg-white" />
                     <br>
                     {{-- s1 --}}
                     <input type="text" name="s1" placeholder="Pendidikan S1" value="{{ $data->s1 }}"

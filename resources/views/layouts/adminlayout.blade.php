@@ -49,12 +49,17 @@
             {{-- nav --}}
             <div class="bg-white h-full basis-1/5">
                 <ul class="bg-base-100 w-scren bg-white">
-                    <li><a href="/admin/kompetensi"
+                    <li>
+                        <a href="/admin/kompetensi"
                             class="btn btn-ghost w-full text-left justify-start py-6 font-medium bg-white hover:bg-gray-50">Kompetensi</a>
                     </li>
-                    <li><a href="/admin/dosen"
+                    <li>
+                        <a href="/admin/dosen"
                             class="btn btn-ghost w-full text-left justify-start py-6 font-medium bg-white hover:bg-gray-50">Dosen</a>
                     </li>
+                    <li>
+                        <a href="/admin/publikasi"
+                            class="btn btn-ghost w-full text-left justify-start py-6 font-medium bg-white hover:bg-gray-50">Publikasi</a>
                     </li>
                 </ul>
             </div>

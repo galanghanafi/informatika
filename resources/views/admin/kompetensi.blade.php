@@ -54,9 +54,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($kompetensi as $data)
+                    @foreach ($kompetensi as $key => $data)
                         <tr>
-                            <th class="bg-white w-0">{{ $loop->index + 1 }}</th>
+                            <th class="bg-white w-0">{{ $kompetensi->firstItem() + $key }}</th>
                             <td class="bg-white whitespace-pre-wrap">{{ $data->kompetensi }}</td>
                             <td class="bg-white w-0">
                                 <a href="#ubah/{{ $data->id }}">
