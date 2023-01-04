@@ -35,6 +35,11 @@
                             + Tambah
                         </button>
                     </a>
+                    <a href="/admin/kompetensi/#trash" class="">
+                        <button class="btn font-medium">
+                            Sampah
+                        </button>
+                    </a>
                 </div>
             </div>
         @else
@@ -48,6 +53,11 @@
                             <a href="#tambah" class="">
                                 <button class="btn btn-success font-medium">
                                     + Tambah
+                                </button>
+                            </a>
+                            <a href="/admin/kompetensi/#trash" class="">
+                                <button class="btn font-medium">
+                                    Sampah
                                 </button>
                             </a>
                         </th>
@@ -157,4 +167,42 @@
             </div>
         </div>
     @endforeach
+
+    {{-- modal tong sampah --}}
+    <div class="modal" id="trash">
+        <div class="modal-box bg-white">
+            <h3 class="font-bold text-lg">Tong Sampah</h3>
+            <br>
+            <table class="table w-full">
+                <thead>
+                    <tr>
+                        <th class="bg-white w-0"></th>
+                        <th class="bg-white text-lg">Kompetensi</th>
+                        <th class="bg-white w-0"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($trashes as $key => $data)
+                        <form action="/admin/kompetensi/trash/{{ $data->id }}" method="post">
+                            <tr>
+                                <th class="bg-white w-0"></th>
+                                <td class="bg-white whitespace-pre-wrap">{{ $data->kompetensi }}</td>
+                                <td class="bg-white w-0">
+                                    <button class="btn btn-success">
+                                        <input type="submit" value="Kembalikan"
+                                            class="text-md font-medium text-black uppercase cursor-pointer">
+                                    </button>
+                                    <a href="#" class="">
+                                        <div class="btn btn-warning font-medium text-sm">
+                                            Batalkan
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                        </form>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 @endsection

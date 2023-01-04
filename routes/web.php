@@ -36,6 +36,7 @@ Route::post('/admin/kompetensi/store', [KompetensiController::class, 'store']);
 Route::post('/admin/kompetensi/destroy/{id}', [KompetensiController::class, 'destroy']);
 Route::post('/admin/kompetensi/update/{id}', [KompetensiController::class, 'update']);
 Route::post('/admin/kompetensi/search', [KompetensiController::class, 'cari']);
+Route::post('/admin/kompetensi/trash', [KompetensiController::class, 'trash']);
 // dosen
 Route::get('/admin/dosen', [DosenController::class, 'index']);
 Route::post('/admin/dosen/store', [DosenController::class, 'store']);

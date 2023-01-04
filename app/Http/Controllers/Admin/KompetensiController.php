@@ -14,7 +14,12 @@ class KompetensiController extends Controller
         $kompetensi = Kompetensi::paginate(10);
         $kompetensi->toJson();
 
-        return view('admin.kompetensi', ['kompetensi' => $kompetensi]);
+        $trash = Kompetensi::onlyTrashed()->get();
+        $trash->toJson();
+        return view('admin.kompetensi', [
+            'kompetensi' => $kompetensi,
+            'trashes' => $trash
+        ]);
     }
 
     public function cari(Request $request)
